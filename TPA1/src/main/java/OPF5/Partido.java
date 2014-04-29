@@ -5,7 +5,7 @@ import java.util.stream.*;
 
 public class Partido {
 	
-	private List<Jugador> jugadores;
+	private List<InscripcionPorJugador> inscripciones= new ArrayList<InscripcionPorJugador> ();
 	private String hora; 
 	private String fecha; 
 	private String lugar;
@@ -13,16 +13,22 @@ public class Partido {
 	
 	Partido(String hora, String fecha, String lugar)
 	 {
-		jugadores= new ArrayList<Jugador>();
+		
 		this. hora = hora;
 		this. fecha = fecha; 
 		this. lugar = lugar; 
 		
 		}
 	
-	public boolean listaCompleta()
+	public void hayNuevaInscripcion(InscripcionPorJugador inscripcion)
 	{
-		return jugadores.stream().filter(j->j.sosEstandar()).size();
+		if (inscripcion.sePuedeAnotarA(this))
+		{
+			inscripciones.add(inscripcion);
+		}
 	}
+	
+	
+	
 	
 }

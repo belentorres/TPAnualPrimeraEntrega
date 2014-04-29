@@ -4,7 +4,6 @@ public class Jugador {
 	
 	private String nombre; 
 	private int edad; 
-	private Inscripcion inscripcion; 
 	
 	Jugador(String nombre, int edad)
 	{
@@ -12,9 +11,9 @@ public class Jugador {
 		this. edad = edad; 
 	}
 	
-	public boolean sosEstandar()
+	public void anotateComo(TipoDeInscripcion tipoDeInscripcion, Partido partido)
 	{
-		return this.tipo.sosEstandar();
+		new InscripcionPorJugador(tipoDeInscripcion,this,partido);
 	}
 
 }
